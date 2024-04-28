@@ -13,9 +13,9 @@
     recursive = TRUE
   )
 
-  exercise_files <- list.files(
-    get_pkg_dir("eoce/exercises"), recursive = TRUE
-  )
+  # exercise_files <- list.files(
+  #   get_pkg_dir("eoce/exercises"), recursive = TRUE
+  # )
 
   if (interactive()) {
     cli::cli_h1("Package {format_pkg_text('introR')} sucessfuly loaded")
@@ -24,7 +24,7 @@
 
     cli::cli_alert_success("{length(data_files)} data files")
     cli::cli_alert_success("{length(script_files)} book scripts for building data files")
-    cli::cli_alert_success("{length(exercise_files)} end of chapter exercises")
+    #cli::cli_alert_success("{length(exercise_files)} end of chapter exercises")
 
 
     cli::cli_h2("Useful links")
@@ -34,23 +34,23 @@
     )
 
     cli::cli_alert_success(
-      paste0("Book online (partial): ", cli::style_hyperlink(my_links$book_online, my_links$book_online ))
+      paste0("Online book: ", cli::style_hyperlink(my_links$book_online, my_links$book_online ))
     )
 
     cli::cli_alert_success(
-      paste0("Amazon site (full book): ", cli::style_hyperlink(my_links$book_amazon_ebook,
+      paste0("Amazon site: ", cli::style_hyperlink(my_links$book_amazon_ebook,
                                                                  my_links$book_amazon_ebook))
     )
 
-    cli::cli_alert_success(
-      paste0("Exercise solutions: ", cli::style_hyperlink(my_links$exercises_solutions,
-                                                            my_links$exercises_solutions))
-    )
-
-    cli::cli_alert_success(
-      paste0("Tutorial for compiling exercises: ", cli::style_hyperlink(my_links$link_blog_dyn_exerc,
-                                                            my_links$link_blog_dyn_exerc))
-    )
+    # cli::cli_alert_success(
+    #   paste0("Exercise solutions: ", cli::style_hyperlink(my_links$exercises_solutions,
+    #                                                         my_links$exercises_solutions))
+    # )
+    #
+    # cli::cli_alert_success(
+    #   paste0("Tutorial for compiling exercises: ", cli::style_hyperlink(my_links$link_blog_dyn_exerc,
+    #                                                         my_links$link_blog_dyn_exerc))
+    # )
 
     # msg <- paste0('\nPackage ', this_pkg, ' sucessfully loaded!',
     #               ' Here youll find:\n',

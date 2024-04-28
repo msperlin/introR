@@ -13,9 +13,9 @@ links_get <- function() {
   my_l <- list(
     book_blog_site  = 'XXXX',
     book_blog_zip = 'XXX',
-    book_amazon_ebook = "XXX",
-    book_amazon_print = "XXX",
-    book_amazon_hardcover = "XXX",
+    book_amazon_ebook = "TODO",
+    book_amazon_print = "TODO",
+    book_amazon_hardcover = "TODO",
     book_github = 'https://github.com/msperlin/introR',
     book_online = "https://www.msperlin.com/introR",
     blog_site = 'https://www.msperlin.com',
