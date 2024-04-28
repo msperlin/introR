@@ -1,0 +1,32 @@
+```{r solution, echo = FALSE, results = "hide"}
+my_url <- 'https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv'
+
+df_grunfeld <- readr::read_csv(my_url, col_types = readr::cols())
+
+my_sol <- ncol(df_grunfeld)
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+
+```
+
+Question
+========
+
+At link [https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv/](https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv) you'll find a _.csv_ file for the _Grunfeld_ data. This is a particularly famous table due to its use as reference data in econometric models. Using `readr::read_csv` function, read this file using the direct link as input `read_csv`. How many columns do you find in the resulting `dataframe`?
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: num
+exsolution: `r my_sol`
+exname: "load csv"
+exshuffle: TRUE
+

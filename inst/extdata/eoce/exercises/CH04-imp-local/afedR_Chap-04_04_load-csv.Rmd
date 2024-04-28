@@ -1,0 +1,36 @@
+```{r solution, echo = FALSE, results = "hide"}
+my_f <- introR::data_path('CH04_SP500.csv')
+
+df_SP500 <- readr::read_csv(my_f, 
+                     col_types = readr::cols())
+
+my_msg <- paste0('There are ', nrow(df_SP500), ' rows and ', 
+                 ncol(df_SP500), ' columns in file ', basename(my_f))
+message(my_msg)
+
+my_sol <- nrow(df_SP500)
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+my_answer <- introR::make_random_answers(my_sol)
+```
+
+Question
+========
+
+Use `introR::data_path` function to access the `r basename(my_f)` file in the book's data repository. Import the contents of the file into R with the function `readr::read_csv`. How many lines are there in the resulting `dataframe`?
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+Meta-information
+================
+extype: num
+exsolution: `r my_sol`
+exname: "load csv"
+exshuffle: TRUE
+

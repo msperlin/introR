@@ -1,0 +1,40 @@
+Package: introR
+Type: Package
+Title: Data and Functions for Book "Introducao ao R" by msperlin
+Version: 0.1
+Date: 2023-01-01
+Author: Marcelo S. Perlin
+Maintainer: Marcelo S. Perlin <marceloperlin@gmail.com>
+Description: Includes functions for retrieving data files from the book and building exercises.
+License: MIT + file LICENSE
+BugReports: https://github.com/msperlin/introR/issues
+URL: https://github.com/msperlin/introR/
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.1
+Depends: R (>= 4.0.0)
+Imports: 
+  utils,
+  readr,
+  purrr,
+  dplyr,
+  stats,
+  exams,
+  crayon,
+  cli,
+  fs,
+  httr,
+  knitr,
+  remotes,
+  scales,
+  stringr,
+  glue,
+  tidyr
+Suggests: 
+    testthat (>= 3.0.0), 
+    yfR, BatchGetSymbols,
+    GetQuandlData,
+    tidyquant, car, gvlma,
+    plm, fGarch,
+    simfinapi
+Config/testthat/edition: 3

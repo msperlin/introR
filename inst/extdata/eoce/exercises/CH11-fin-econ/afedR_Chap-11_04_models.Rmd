@@ -1,0 +1,76 @@
+```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
+library(ggplot2)
+
+tickers <- yfR::yf_index_composition("DOW")$ticker
+first_date <- Sys.Date() - 3*365
+last_date  <- Sys.Date()
+
+df_stocks <- yfR::yf_get(tickers, 
+                         first_date, 
+                         last_date)
+
+df_sp500 <- yfR::yf_get('^GSPC', 
+                        first_date, 
+                        last_date)
+
+idx <- match(df_stocks$ref_date, df_sp500$ref_date)
+df_stocks$ret_mkt <- df_sp500$ret_closing_prices[idx]
+
+# calculate beta for each stock
+estimate_beta <- function(df) {
+  # Function to estimate beta from dataframe of stocks returns
+  #
+  # Args:
+  #   df - Dataframe with columns ret and ret.sp500
+  #
+  # Returns:
+  #   The value of beta
+  
+  my_model <- lm(data = df, 
+                 formula = ret_adjusted_prices ~ ret_mkt)
+  
+  return(coef(my_model)[2])
+}
+
+my_betas <- by(data = df_stocks, 
+               INDICES = df_stocks$ticker, 
+               FUN = estimate_beta)
+
+glimpse(my_betas)
+
+# solution
+p <- ggplot(tibble::tibble(betas = my_betas), aes(x = betas)) + 
+  geom_histogram()
+
+print(p)
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+# none
+#my_answers <- introR::make_random_answers(my_sol)
+my_answers <- rep(NA, 5)
+
+type_question <- 'string'
+ex_name <- 'models 11 04'
+```
+
+Question
+========
+
+Use command `yfR::yf_index_composition("DOW")` to find the ticker of the components of the index and `yfR::yf_get` to download all available price data. Using the SP500 itself -- ticker `'^GSPC'` -- as the market index, calculate the beta for all stocks. Display the histogram of the estimated _betas_. Note that the SP500 returns are not available in the original database and must be downloaded and added to the original database.
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: `r type_question`
+exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
+exname: `r ex_name`
+exshuffle: TRUE
+

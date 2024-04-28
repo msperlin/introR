@@ -1,0 +1,49 @@
+```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
+library(yfR)
+library(ggplot2)
+
+tickers <- 'TLSA'
+
+df_tlsa<- yf_get(tickers = tickers, 
+                 first_date = Sys.Date() - 500,
+                 last_date = Sys.Date())
+
+p <- ggplot(df_tlsa, aes(x = ref_date, y = price_adjusted)) + 
+  geom_line() + 
+  labs(title = paste0('Prices for ', tickers) ,
+       subtitle = paste0('Data from ', min(df_tlsa$ref_date), ' to ', 
+                         max(df_tlsa$ref_date)),
+       caption = "Solution for exercise 01, chapter 10 - afedR")
+
+print(p)
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+# none
+my_answers <- rep(0, 5)
+```
+
+Question
+========
+
+Download TESLA (TSLA) stock data with the `yfR` package for the last 500 days. Display the price line chart adjusted over time using the `r introR::format_fct_text("ggplot")` function. Make sure that:
+
+- x and y axes are correctly named;
+- The chart has a title ("Prices for TESLA"), subtitle ("Data from YYYY-MM-DD to YYYY-MM-DD") and a _caption_ ("Solution for exercise 01, chapter 10 - afedR").
+
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: string
+exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
+exname: "function 01"
+exshuffle: TRUE
+

@@ -1,0 +1,36 @@
+```{r solution, echo = FALSE, results = "hide"}
+my_f <- introR::data_path('CH04_example-tsv.tsv')
+
+df_tsv <- readr::read_delim(my_f, delim = '\t', col_types = readr::cols())
+
+my_sol <- nrow(df_tsv)
+
+#check_answers(my_answers)
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+my_answer <- introR::make_random_answers(my_sol)
+
+#check_answers(my_answers)
+```
+
+Question
+========
+
+Use function `introR::data_path` function to access the `r basename(my_f)` file in the book's data repository. Note that the columns of the data are separated by the tab symbol (`'\t'`), and not the usual comma. After reading the `readr::read_delim` manual, import the information from this file to your R session. How many rows does the resulting `dataframe` contain?
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: num
+exsolution: `r my_sol`
+exname: "load tsv"
+exshuffle: TRUE
+

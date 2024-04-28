@@ -1,0 +1,57 @@
+```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
+library(ggplot2)
+
+tickers <- yfR::yf_index_composition("DOW")$ticker
+first_date <- Sys.Date() - 3*365
+last_date  <- Sys.Date()
+
+df_stocks <- yfR::yf_get(tickers, 
+                         first_date, 
+                         last_date)
+
+df_sp500 <- yfR::yf_get('^GSPC', 
+                        first_date, 
+                        last_date)
+
+idx <- match(df_stocks$ref_date, df_sp500$ref_date)
+df_stocks$ret_mkt <- df_sp500$ret_closing_prices[idx]
+
+# calculate PLM beta
+library(plm)
+
+# estimate panel data model with fixed effects
+my_pdm <- plm(data = df_stocks, 
+              formula = ret_adjusted_prices ~ ret_mkt, 
+              model = 'within',
+              index = c('ticker'))
+
+# print result
+print(summary(my_pdm))
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+# none
+#my_answers <- introR::make_random_answers(my_sol)
+my_answers <- rep(NA, 5)
+```
+
+Question
+========
+
+For previously imported data, estimate a panel data version for the market model (beta). In this version, each stock has a different intercept, but they share the same beta. Is the estimated beta significant at 5%?
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: string
+exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
+exname: "function 01"
+exshuffle: TRUE
+

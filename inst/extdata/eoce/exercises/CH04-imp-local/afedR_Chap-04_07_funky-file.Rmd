@@ -1,0 +1,38 @@
+```{r solution, echo = FALSE, results = "hide"}
+my_f <- introR::data_path("CH04_another-funky-csv-file.csv")
+
+df_funky <- read.table(file = my_f, 
+           dec = '?', 
+           skip = 7, 
+           sep = '|', 
+           header = TRUE)
+
+my_sol <- nrow(df_funky) + ncol(df_funky)
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+my_answer <- introR::make_random_answers(my_sol)
+
+introR::check_answers(my_answer)
+```
+
+Question
+========
+
+In the book package you'll find data file called `r basename(my_f)`, with a particularly bizarre format. Open it in a text editor and try to understand how the columns are separated and what is symbol for decimals. After that, study the inputs of function `utils::read.table` and import the table into your R  session. If we add the number of rows to the number of columns in the imported table, what is the result?
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: num
+exsolution: `r my_sol`
+exname: "funky file"
+exshuffle: TRUE
+

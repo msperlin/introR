@@ -1,0 +1,55 @@
+---
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, 
+  results = 'hold',
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Repository for R package introR 
+
+Includes several functions related to the third edition of book "Analyzing Financial and Economic Data with R", available in the following formats:
+
+- [Amazon](https://www.amazon.com/dp/TODO) - full length book
+- [Online version](https://www.msperlin.com/introR/) - first seven chapters
+
+
+## Installation
+
+```
+# only in github
+devtools::install_github('msperlin/introR')
+```
+
+## Example of usage
+
+### Listing available datasets
+
+```{r}
+introR::data_list()
+```
+
+### Fetching data from book repository
+
+```{r}
+file_name <- 'CH04_SP500.csv'
+path_to_file <- introR::data_path(file_name)
+
+df <- readr::read_csv(path_to_file)
+dplyr::glimpse(df)
+```
+
+### Copying all book files to local directory
+
+```{r}
+temp_path <- fs::path_temp('introR')
+
+flag <- introR::bookfiles_get(path_to_copy = temp_path)
+```
+
